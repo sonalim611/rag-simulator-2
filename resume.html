@@ -64,4 +64,118 @@ export default function FuturisticResume() {
 
               <div className="space-y-3 text-sm text-gray-300">
                 <div>
-                  <span className="text-white font-medium">Role:</span> A
+                  <span className="text-white font-medium">Role:</span> AI / APM Aspirant
+                </div>
+                <div>
+                  <span className="text-white font-medium">Focus:</span> AI Products, UX, PM Strategy
+                </div>
+                <div>
+                  <span className="text-white font-medium">Interests:</span> RAG, AI Workflows, Fintech, Collaboration Tools
+                </div>
+                <div>
+                  <span className="text-white font-medium">Strength:</span> Structured product thinking + rapid prototyping
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-6 mt-10">
+            <div className="lg:col-span-2 border border-white/10 rounded-3xl p-6 bg-white/5">
+              <div className="flex items-center justify-between mb-6">
+                <h2 className="text-2xl font-bold">Featured Projects</h2>
+                <div className="h-[1px] flex-1 bg-white/10 ml-4"></div>
+              </div>
+
+              <div className="space-y-6">
+                {projects.map((project, idx) => (
+                  <div
+                    key={idx}
+                    className="border border-white/10 rounded-2xl p-5 hover:border-cyan-400/40 transition-all duration-300"
+                  >
+                    <div className="flex items-center justify-between gap-4 flex-wrap">
+                      <h3 className="text-xl font-semibold text-cyan-300">
+                        {project.title}
+                      </h3>
+                      <span className="text-xs uppercase tracking-widest text-gray-400">
+                        Product Design
+                      </span>
+                    </div>
+
+                    <p className="mt-3 text-gray-300 leading-relaxed">
+                      {project.description}
+                    </p>
+
+                    <div className="mt-4 inline-flex items-center gap-2 px-3 py-2 rounded-full bg-cyan-400/10 border border-cyan-400/20 text-sm text-cyan-200">
+                      ✦ {project.impact}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="space-y-6">
+              <div className="border border-white/10 rounded-3xl p-6 bg-white/5">
+                <h2 className="text-2xl font-bold mb-5">Core Skills</h2>
+
+                <div className="flex flex-wrap gap-3">
+                  {skills.map((skill, idx) => (
+                    <div
+                      key={idx}
+                      className="px-4 py-2 rounded-full bg-white/5 border border-cyan-400/20 text-sm text-cyan-100 hover:bg-cyan-400/10 transition-all"
+                    >
+                      {skill}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="border border-white/10 rounded-3xl p-6 bg-gradient-to-br from-cyan-500/10 to-blue-500/10">
+                <h2 className="text-2xl font-bold mb-4">AI PM Vision</h2>
+
+                <p className="text-gray-300 leading-relaxed text-sm">
+                  Building AI systems that simplify workflows, reduce cognitive load,
+                  and enable users to make faster, smarter decisions through contextual intelligence.
+                </p>
+              </div>
+
+              <div className="border border-white/10 rounded-3xl p-6 bg-white/5">
+                <h2 className="text-2xl font-bold mb-4">Learning Journey</h2>
+
+                <div className="space-y-4 text-sm text-gray-300">
+                  <div>
+                    <div className="font-medium text-white">AI Product Management</div>
+                    <div>Focused on AI strategy, product sense, PRDs, and GenAI use cases.</div>
+                  </div>
+
+                  <div>
+                    <div className="font-medium text-white">Rapid Prototyping</div>
+                    <div>Creating AI product concepts and interactive prototypes using modern AI tools.</div>
+                  </div>
+
+                  <div>
+                    <div className="font-medium text-white">Product Thinking</div>
+                    <div>Practicing structured problem solving through product teardowns and case studies.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-10 border border-cyan-400/20 rounded-3xl p-6 bg-cyan-400/5 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
+            <div>
+              <h2 className="text-2xl font-bold">Future-Ready Product Builder</h2>
+              <p className="text-gray-300 mt-2 max-w-2xl">
+                Passionate about the intersection of AI, user experience, and product strategy.
+                Continuously learning, building, and exploring the future of intelligent products.
+              </p>
+            </div>
+
+            <button className="px-6 py-3 rounded-2xl bg-cyan-300 text-black font-semibold hover:scale-105 transition-all duration-300 shadow-lg shadow-cyan-400/30">
+              Available for AI PM Opportunities
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
