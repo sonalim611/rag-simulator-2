@@ -1,181 +1,496 @@
-export default function FuturisticResume() {
-  const skills = [
-    "AI Product Strategy",
-    "Generative AI",
-    "PRD Writing",
-    "Product Thinking",
-    "User Research",
-    "Roadmapping",
-    "RAG Fundamentals",
-    "Prompt Engineering",
-    "Fintech Product Analysis",
-    "AI Prototyping",
-  ];
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sonali | AI Product Manager</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
 
-  const projects = [
-    {
-      title: "AI Review Inbox for Collaborative Docs",
-      description:
-        "Designed an AI-powered review workflow that summarizes comments, tracks decisions, highlights ownership gaps, and prioritizes actions for faster document collaboration.",
-      impact: "Focused on reducing review fatigue and improving productivity.",
-    },
-    {
-      title: "Jira AI Context Assistant",
-      description:
-        "Explored an AI assistant that surfaces relevant context, summaries, and task intelligence directly inside workflow tools.",
-      impact: "Improves information discovery and decision-making speed.",
-    },
-    {
-      title: "Fintech Product Teardowns",
-      description:
-        "Analyzed products like Google Pay to identify AI-driven opportunities in spending insights, transaction intelligence, and user experience.",
-      impact: "Strengthened product sense and strategic thinking in fintech.",
-    },
-  ];
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #050816;
+      color: #ffffff;
+      overflow-x: hidden;
+      position: relative;
+    }
 
-  return (
-    <div className="min-h-screen bg-black text-white overflow-hidden relative font-sans">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#1e3a8a_0%,transparent_35%),radial-gradient(circle_at_bottom,#0f766e_0%,transparent_30%)] opacity-30"></div>
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at top left, rgba(99, 102, 241, 0.25), transparent 25%),
+        radial-gradient(circle at bottom right, rgba(14, 165, 233, 0.2), transparent 30%),
+        radial-gradient(circle at center, rgba(168, 85, 247, 0.1), transparent 40%);
+      z-index: -2;
+    }
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 py-10">
-        <div className="border border-white/10 bg-white/5 backdrop-blur-xl rounded-3xl p-8 shadow-2xl">
-          <div className="flex flex-col lg:flex-row justify-between gap-8 items-start">
-            <div>
-              <p className="uppercase tracking-[0.3em] text-cyan-300 text-sm mb-3">
-                AI Product Manager • Future Builder
-              </p>
+    .grid-overlay {
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      z-index: -1;
+      mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
+    }
 
-              <h1 className="text-5xl lg:text-7xl font-black leading-none">
-                SONALI
-              </h1>
+    .container {
+      width: min(1200px, 92%);
+      margin: auto;
+      padding: 40px 0 80px;
+    }
 
-              <p className="mt-6 text-lg text-gray-300 max-w-2xl leading-relaxed">
-                Aspiring AI Product Manager passionate about building intelligent,
-                user-centric products powered by Generative AI. Skilled in product
-                strategy, PRDs, AI workflows, and solving complex user problems
-                through structured product thinking.
-              </p>
-            </div>
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+      gap: 40px;
+    }
 
-            <div className="w-full lg:w-[320px] border border-cyan-400/20 rounded-2xl p-6 bg-cyan-400/5">
-              <h2 className="text-cyan-300 font-semibold text-lg mb-4">
-                Quick Snapshot
-              </h2>
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 18px;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(10px);
+      margin-bottom: 24px;
+      color: #a5f3fc;
+      font-size: 14px;
+    }
 
-              <div className="space-y-3 text-sm text-gray-300">
-                <div>
-                  <span className="text-white font-medium">Role:</span> AI / APM Aspirant
-                </div>
-                <div>
-                  <span className="text-white font-medium">Focus:</span> AI Products, UX, PM Strategy
-                </div>
-                <div>
-                  <span className="text-white font-medium">Interests:</span> RAG, AI Workflows, Fintech, Collaboration Tools
-                </div>
-                <div>
-                  <span className="text-white font-medium">Strength:</span> Structured product thinking + rapid prototyping
-                </div>
-              </div>
-            </div>
+    .pulse {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #22c55e;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(2.5); opacity: 0; }
+    }
+
+    h1 {
+      font-size: clamp(3rem, 7vw, 6rem);
+      line-height: 1;
+      font-weight: 800;
+      margin-bottom: 20px;
+      background: linear-gradient(90deg, #ffffff, #8be9fd, #c084fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      font-size: 1.3rem;
+      color: #cbd5e1;
+      line-height: 1.8;
+      max-width: 700px;
+      margin-bottom: 32px;
+    }
+
+    .cta-group {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 26px;
+      border-radius: 16px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s ease;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .primary {
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: white;
+      box-shadow: 0 10px 40px rgba(99,102,241,0.35);
+    }
+
+    .secondary {
+      background: rgba(255,255,255,0.05);
+      color: white;
+      backdrop-filter: blur(10px);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .hero-card {
+      position: relative;
+      padding: 30px;
+      border-radius: 28px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(20px);
+      overflow: hidden;
+      box-shadow: 0 0 60px rgba(139,92,246,0.15);
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -50%;
+      background: conic-gradient(from 180deg, transparent, rgba(99,102,241,0.4), transparent 30%);
+      animation: rotate 10s linear infinite;
+    }
+
+    .hero-card-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    @keyframes rotate {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .metric {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .metric:last-child {
+      border-bottom: none;
+    }
+
+    .metric h3 {
+      font-size: 15px;
+      color: #cbd5e1;
+      font-weight: 500;
+    }
+
+    .metric span {
+      font-size: 18px;
+      font-weight: 700;
+      color: #8be9fd;
+    }
+
+    section {
+      margin-top: 100px;
+    }
+
+    .section-title {
+      font-size: 2.4rem;
+      margin-bottom: 40px;
+      font-weight: 700;
+    }
+
+    .section-title span {
+      color: #8b5cf6;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      padding: 28px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: 0.35s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(139,92,246,0.4);
+      box-shadow: 0 15px 50px rgba(139,92,246,0.2);
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      background: rgba(99,102,241,0.15);
+      border-radius: 50%;
+      top: -80px;
+      right: -80px;
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .card p {
+      color: #cbd5e1;
+      line-height: 1.7;
+      position: relative;
+      z-index: 1;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .skill {
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      font-size: 14px;
+      color: #dbeafe;
+      transition: 0.3s;
+    }
+
+    .skill:hover {
+      background: rgba(99,102,241,0.2);
+      transform: scale(1.05);
+    }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .timeline-item {
+      padding: 24px;
+      border-left: 3px solid #8b5cf6;
+      background: rgba(255,255,255,0.04);
+      border-radius: 0 20px 20px 0;
+    }
+
+    .timeline-item h3 {
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+
+    .timeline-item p {
+      color: #cbd5e1;
+      line-height: 1.7;
+    }
+
+    footer {
+      margin-top: 100px;
+      padding: 40px 0;
+      text-align: center;
+      color: #94a3b8;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .cursor {
+      color: #8be9fd;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0;
+      }
+    }
+
+    @media(max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-overlay"></div>
+
+  <div class="container">
+    <section class="hero">
+      <div>
+        <div class="tag">
+          <span class="pulse"></span>
+          Building AI-first Product Experiences
+        </div>
+
+        <h1>Sonali<span class="cursor">_</span></h1>
+
+        <p class="subtitle">
+          Aspiring AI Product Manager passionate about building intelligent user experiences, solving high-impact workflow problems, and designing AI-native products powered by strong product thinking, systems understanding, and user empathy.
+        </p>
+
+        <div class="cta-group">
+          <a href="#projects" class="btn primary">View Projects</a>
+          <a href="#skills" class="btn secondary">Explore Skills</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="hero-card-content">
+          <div class="metric">
+            <h3>Focus Area</h3>
+            <span>AI Product Management</span>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-6 mt-10">
-            <div className="lg:col-span-2 border border-white/10 rounded-3xl p-6 bg-white/5">
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl font-bold">Featured Projects</h2>
-                <div className="h-[1px] flex-1 bg-white/10 ml-4"></div>
-              </div>
-
-              <div className="space-y-6">
-                {projects.map((project, idx) => (
-                  <div
-                    key={idx}
-                    className="border border-white/10 rounded-2xl p-5 hover:border-cyan-400/40 transition-all duration-300"
-                  >
-                    <div className="flex items-center justify-between gap-4 flex-wrap">
-                      <h3 className="text-xl font-semibold text-cyan-300">
-                        {project.title}
-                      </h3>
-                      <span className="text-xs uppercase tracking-widest text-gray-400">
-                        Product Design
-                      </span>
-                    </div>
-
-                    <p className="mt-3 text-gray-300 leading-relaxed">
-                      {project.description}
-                    </p>
-
-                    <div className="mt-4 inline-flex items-center gap-2 px-3 py-2 rounded-full bg-cyan-400/10 border border-cyan-400/20 text-sm text-cyan-200">
-                      ✦ {project.impact}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="space-y-6">
-              <div className="border border-white/10 rounded-3xl p-6 bg-white/5">
-                <h2 className="text-2xl font-bold mb-5">Core Skills</h2>
-
-                <div className="flex flex-wrap gap-3">
-                  {skills.map((skill, idx) => (
-                    <div
-                      key={idx}
-                      className="px-4 py-2 rounded-full bg-white/5 border border-cyan-400/20 text-sm text-cyan-100 hover:bg-cyan-400/10 transition-all"
-                    >
-                      {skill}
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="border border-white/10 rounded-3xl p-6 bg-gradient-to-br from-cyan-500/10 to-blue-500/10">
-                <h2 className="text-2xl font-bold mb-4">AI PM Vision</h2>
-
-                <p className="text-gray-300 leading-relaxed text-sm">
-                  Building AI systems that simplify workflows, reduce cognitive load,
-                  and enable users to make faster, smarter decisions through contextual intelligence.
-                </p>
-              </div>
-
-              <div className="border border-white/10 rounded-3xl p-6 bg-white/5">
-                <h2 className="text-2xl font-bold mb-4">Learning Journey</h2>
-
-                <div className="space-y-4 text-sm text-gray-300">
-                  <div>
-                    <div className="font-medium text-white">AI Product Management</div>
-                    <div>Focused on AI strategy, product sense, PRDs, and GenAI use cases.</div>
-                  </div>
-
-                  <div>
-                    <div className="font-medium text-white">Rapid Prototyping</div>
-                    <div>Creating AI product concepts and interactive prototypes using modern AI tools.</div>
-                  </div>
-
-                  <div>
-                    <div className="font-medium text-white">Product Thinking</div>
-                    <div>Practicing structured problem solving through product teardowns and case studies.</div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div class="metric">
+            <h3>Core Strength</h3>
+            <span>Product Thinking</span>
           </div>
 
-          <div className="mt-10 border border-cyan-400/20 rounded-3xl p-6 bg-cyan-400/5 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
-            <div>
-              <h2 className="text-2xl font-bold">Future-Ready Product Builder</h2>
-              <p className="text-gray-300 mt-2 max-w-2xl">
-                Passionate about the intersection of AI, user experience, and product strategy.
-                Continuously learning, building, and exploring the future of intelligent products.
-              </p>
-            </div>
+          <div class="metric">
+            <h3>Current Learning</h3>
+            <span>Generative AI + RAG</span>
+          </div>
 
-            <button className="px-6 py-3 rounded-2xl bg-cyan-300 text-black font-semibold hover:scale-105 transition-all duration-300 shadow-lg shadow-cyan-400/30">
-              Available for AI PM Opportunities
-            </button>
+          <div class="metric">
+            <h3>Domain Interest</h3>
+            <span>Fintech & AI Productivity</span>
+          </div>
+
+          <div class="metric">
+            <h3>Specialization</h3>
+            <span>PRDs & AI Workflows</span>
           </div>
         </div>
       </div>
-    </div>
-  );
-}
+    </section>
+
+    <section id="projects">
+      <h2 class="section-title">Featured <span>Projects</span></h2>
+
+      <div class="cards">
+        <div class="card">
+          <h3>AI Review Inbox for Docs</h3>
+          <p>
+            Designed an AI-powered review workflow system that summarizes comments, prioritizes actions, tracks decisions, and improves collaborative document review efficiency.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Jira AI Workflow Assistant</h3>
+          <p>
+            Explored AI-driven productivity enhancements for issue management by surfacing contextual insights, summaries, and workflow acceleration opportunities.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Google Pay Spend Intelligence</h3>
+          <p>
+            Conceptualized AI-powered spend summaries that categorize user transactions across apps like food delivery, shopping, and subscriptions for better financial awareness.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2 class="section-title">Core <span>Capabilities</span></h2>
+
+      <div class="skills">
+        <div class="skill">AI Product Thinking</div>
+        <div class="skill">PRD Writing</div>
+        <div class="skill">Product Strategy</div>
+        <div class="skill">User Experience Design</div>
+        <div class="skill">Generative AI</div>
+        <div class="skill">RAG Systems</div>
+        <div class="skill">Prompt Engineering</div>
+        <div class="skill">Roadmapping</div>
+        <div class="skill">Prioritization</div>
+        <div class="skill">Product Sense</div>
+        <div class="skill">Fintech Domain Learning</div>
+        <div class="skill">AI Workflow Design</div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Learning <span>Journey</span></h2>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <h3>AI Product Management</h3>
+          <p>
+            Continuously developing expertise in AI product strategy, user-centric problem solving, AI workflows, and LLM-powered experiences through hands-on case studies and product teardowns.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>Product Case Studies & PRDs</h3>
+          <p>
+            Practicing structured product thinking through feature ideation, PRDs, prioritization frameworks, rollout planning, and user experience optimization.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>Future Vision</h3>
+          <p>
+            Aiming to build intelligent AI-native products that simplify complex workflows, improve decision making, and create seamless human-AI collaboration experiences.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>Designed with futuristic UI principles • AI-first mindset • Product-led thinking</p>
+    </footer>
+  </div>
+
+  <script>
+    const cards = document.querySelectorAll('.card');
+
+    cards.forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        card.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(139,92,246,0.18), rgba(255,255,255,0.05))`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.background = 'rgba(255,255,255,0.05)';
+      });
+    });
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.animate([
+            { opacity: 0, transform: 'translateY(40px)' },
+            { opacity: 1, transform: 'translateY(0px)' }
+          ], {
+            duration: 700,
+            easing: 'ease-out',
+            fill: 'forwards'
+          });
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('section, .card, .timeline-item').forEach(el => {
+      el.style.opacity = '0';
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
